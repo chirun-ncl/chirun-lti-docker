@@ -1,0 +1,25 @@
+version: "3"
+   
+services:
+  cblti:
+    build: .
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - './files/ssl:/etc/ssl/cblti'
+      - './files/cblti:/cblti'
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      - content:/srv/content/
+  mysql:
+    env_file:
+      - 'settings.env'
+    image: mysql
+    environment:
+      MYSQL_DATABASE: cblti
+      MYSQL_USER: cblti
+    volumes:
+      - mysqldata:/var/lib/mysql
+volumes: 
+  mysqldata:
+  content:
