@@ -1,0 +1,10 @@
+[template]
+src   = "cblti443.conf"
+dest  = "/etc/apache2/sites-available/cblti443.conf"
+owner = "root"
+group = "root"
+mode  = "0644"
+keys = [
+"/cblti",
+]
+check_cmd = "apachectl configtest"

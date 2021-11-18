@@ -1,0 +1,10 @@
+[template]
+src   = "cblti.conf"
+dest  = "/etc/apache2/conf-available/cblti.conf"
+owner = "root"
+group = "root"
+mode  = "0644"
+keys = [
+"/cblti",
+]
+check_cmd = "apachectl configtest"

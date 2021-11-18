@@ -1,0 +1,10 @@
+[template]
+src   = "config.php"
+dest  = "/srv/www/lti/config.php"
+owner = "cblti"
+group = "cblti"
+mode  = "0644"
+keys = [
+"/cblti",
+"/mysql",
+]
