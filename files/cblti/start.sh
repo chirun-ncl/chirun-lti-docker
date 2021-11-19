@@ -12,10 +12,9 @@ usermod -aG docker cblti
 confd -onetime -backend env
 
 mkdir -p /opt/processing/logs
-mkdir -p /opt/processing/templates
+rsync -ra /srv/www/lti/process/ /opt/processing/
 chmod +x /opt/processing/process.sh
 
-rsync -ra /srv/www/lti/process/templates/ /opt/processing/templates/
 chown -R cblti:cblti /opt/processing
 chown -R cblti:www-data /opt/processing/logs && chmod -R 775 /opt/processing/logs 
 chown -R cblti:www-data /srv/www/lti/content && chmod -R 775 /srv/www/lti/content 

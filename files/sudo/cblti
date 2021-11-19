@@ -1,1 +1,5 @@
 www-data ALL = ( cblti ) NOPASSWD: /opt/processing/process.sh
+Defaults env_keep += "PROCESSDIR"
+Defaults env_keep += "CONTENTDIR"
+Defaults env_keep += "UPLOADDIR"
+Defaults env_keep += "DOCKER_PROCESSING_VOLUME"

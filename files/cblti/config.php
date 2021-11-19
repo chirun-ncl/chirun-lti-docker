@@ -14,6 +14,7 @@ define('CONTENTDIR', '/srv/www/lti/content');
 define('UPLOADDIR', '/srv/www/lti/upload');
 define('PROCESSDIR', '/opt/processing/');
 define('PROCESSUSER', "cblti");
+define('TEMPLATECACHE', "/tmp/cb_php/template_cache");
 
 // Database connection settings
 define('DB_NAME', 'mysql:dbname=cblti;host=mysql');

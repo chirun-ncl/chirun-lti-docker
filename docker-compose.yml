@@ -5,6 +5,8 @@ services:
     build: .
     env_file:
       - 'settings.env'
+    environment:
+      DOCKER_PROCESSING_VOLUME: 1
     ports:
       - "80:80"
       - "443:443"
@@ -13,7 +15,6 @@ services:
       - '/var/run/docker.sock:/var/run/docker.sock'
       - content:/srv/www/lti/content/
       - processing:/opt/processing/
-      - './files/cblti/process.sh:/opt/processing/process.sh'
       - './files/cblti/index.html:/srv/www/index.html'
   mysql:
     env_file:
