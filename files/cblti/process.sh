@@ -4,6 +4,7 @@ error() {
   exit 1;
 }
 cleanup(){
+  echo "Cleaning up..."
   # Tidy up processing directory
   docker run --rm -v "${DOCKER_VOLUME}:/opt/processing/" -w ${PROCESS_TARGET} coursebuilder/coursebuilder-docker make clean >/dev/null 2>&1;
   # Remove processing directory

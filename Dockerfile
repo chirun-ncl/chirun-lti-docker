@@ -1,4 +1,4 @@
-ARG VERSION=0.2-3
+ARG VERSION=0.2-4
 FROM php:8.0-apache
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -27,7 +27,6 @@ RUN chown -R cblti:cblti /srv/www/lti
 RUN chown -R cblti:www-data /srv/www/lti/upload && chmod -R 775 /srv/www/lti/upload
 
 COPY files/cblti/start.sh /cblti/start.sh
-COPY files/cblti/index.html /srv/www/index.html
 COPY files/cblti/apache/cblti80.conf.toml /etc/confd/conf.d/cblti80.conf.toml
 COPY files/cblti/apache/cblti80.conf /etc/confd/templates/cblti80.conf
 COPY files/cblti/apache/cblti443.conf.toml /etc/confd/conf.d/cblti443.conf.toml
