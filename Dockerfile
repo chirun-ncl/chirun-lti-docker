@@ -1,4 +1,4 @@
-ARG VERSION=0.2-4
+ARG VERSION=0.2-7
 FROM php:8.0-apache
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -21,7 +21,7 @@ RUN curl -fsSL -o /usr/bin/confd https://github.com/kelseyhightower/confd/releas
 RUN useradd -ms /bin/bash cblti && usermod -a -G www-data cblti
 
 ARG VERSION
-RUN git clone https://***REMOVED***@mas-gitlab.ncl.ac.uk/makecourse-tools/lti.git /srv/www/lti
+RUN git clone https://github.com/coursebuilder-ncl/coursebuilder-lti.git /srv/www/lti
 
 RUN mkdir -p /srv/www/lti/upload
 RUN chown -R cblti:cblti /srv/www/lti
