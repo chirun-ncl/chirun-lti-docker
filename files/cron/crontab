@@ -1,0 +1,5 @@
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# m h dom mon dow user	command
+0 0 * * * cblti find /srv/www/lti/upload/ -mindepth 1 -maxdepth 1 -exec rm -r -- {} +

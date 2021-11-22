@@ -2,8 +2,9 @@ ARG VERSION=0.2-4
 FROM php:8.0-apache
 
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update -y && apt-get upgrade -y && apt-get install -y --no-install-recommends apt-utils apt-transport-https \
-ca-certificates curl gnupg2 software-properties-common lsb-release sudo libyaml-dev rsync
+RUN apt-get update -y && apt-get upgrade -y && apt-get install -y --no-install-recommends apt-utils \
+apt-transport-https ca-certificates curl gnupg2 software-properties-common lsb-release sudo \
+libyaml-dev rsync cron
 
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
 RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
@@ -27,6 +28,7 @@ RUN chown -R cblti:cblti /srv/www/lti
 RUN chown -R cblti:www-data /srv/www/lti/upload && chmod -R 775 /srv/www/lti/upload
 
 COPY files/cblti/start.sh /cblti/start.sh
+COPY files/cron/crontab /etc/crontab
 COPY files/cblti/apache/cblti80.conf.toml /etc/confd/conf.d/cblti80.conf.toml
 COPY files/cblti/apache/cblti80.conf /etc/confd/templates/cblti80.conf
 COPY files/cblti/apache/cblti443.conf.toml /etc/confd/conf.d/cblti443.conf.toml

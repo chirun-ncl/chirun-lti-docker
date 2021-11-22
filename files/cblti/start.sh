@@ -23,4 +23,4 @@ a2ensite cblti80.conf
 a2ensite cblti443.conf
 a2enconf cblti.conf
 
-apache2-foreground
+cron && apache2-foreground
