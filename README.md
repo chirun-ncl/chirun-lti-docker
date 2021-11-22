@@ -31,7 +31,20 @@ docker-compose up
 
 ### Stopping
 
-Stop the containers with `docker-compose down`.
+Stop the containers with
+```
+docker-compose down
+```
+
+## LTI Setup
+To use the NCL CourseBuilder LTI tool with your VLE, an administrator will need to add the tool to your own instance of the VLE. To do this, the VLE needs to be setup beforehand as a tool consumer in the admin panel accessible on your web server at https://coursebuilder-lti.institution.tld/lti/admin/. Login with the administrator account setup in the file `settings.env`.
+
+Create a Name, Key, and Secret for your VLE using the Add New Consumer form on the admin page, and then forward that information on to your VLE administrator to be added as an external LTI tool.
+
+They might also need the URL for the LTI XML configuration, https://coursebuilder-lti.institution.tld/lti/xml/ or the LTI launch URL, https://coursebuilder-lti.institution.tld/lti/connect.php.
+
+### Landing Page
+A simple landing page for the root of the webserver at https://coursebuilder-lti.institution.tld has been included in `files/cblti/index.html`. This file is bind mounted by Docker at launch and so can be directly edited by the server administrator as required.
 
 ## Running in the cloud
 
@@ -39,7 +52,7 @@ Docker Compose files can also be used to deploy to the cloud. See the following 
  - [Compose for Amazon ECS](https://docs.docker.com/engine/context/ecs-integration/)
  - [Compose for Microsoft ACI](https://docs.docker.com/engine/context/aci-integration/)
 
-### Standard upgrade instructions
+## Upgrade instructions
 
 To upgrade to a new version, fetch the latest version of this repo and then,
 
