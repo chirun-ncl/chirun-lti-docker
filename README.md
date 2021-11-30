@@ -1,6 +1,6 @@
-# Docker Compose Recipe for NCL CourseBuilder LTI Tool
+# Docker Compose Recipe for Chirun LTI Tool
 
-This repository contains everything needed to run the NCL CourseBuilder LTI tool in Docker containers.
+This repository contains everything needed to run the Chirun LTI tool in Docker containers.
 
 ## Documentation
 
@@ -37,14 +37,14 @@ docker-compose down
 ```
 
 ## LTI Setup
-To use the NCL CourseBuilder LTI tool with your VLE, an administrator will need to add the tool to your own instance of the VLE. To do this, the VLE needs to be setup beforehand as a tool consumer in the admin panel accessible on your web server at https://coursebuilder-lti.institution.tld/lti/admin/. Login with the administrator account setup in the file `settings.env`.
+To use the Chirun LTI tool with your VLE, an administrator will need to add the tool to your own instance of the VLE. To do this, the VLE needs to be setup beforehand as a tool consumer in the admin panel accessible on your web server at https://chirun-lti.institution.tld/lti/admin/. Login with the administrator account setup in the file `settings.env`.
 
 Create a Name, Key, and Secret for your VLE using the Add New Consumer form on the admin page, and then forward that information on to your VLE administrator to be added as an external LTI tool.
 
-They might also need the URL for the LTI XML configuration, https://coursebuilder-lti.institution.tld/lti/xml/ or the LTI launch URL, https://coursebuilder-lti.institution.tld/lti/connect.php.
+They might also need the URL for the LTI XML configuration, https://chirun-lti.institution.tld/lti/xml/ or the LTI launch URL, https://chirun-lti.institution.tld/lti/connect.php.
 
 ### Landing Page
-A simple landing page for the root of the webserver at https://coursebuilder-lti.institution.tld has been included in `files/cblti/index.html`. This file is bind mounted by Docker at launch and so can be directly edited by the server administrator as required.
+A simple landing page for the root of the webserver at https://chirun-lti.institution.tld has been included in `files/cblti/index.html`. This file is bind mounted by Docker at launch and so can be directly edited by the server administrator as required.
 
 ## Running in the cloud
 
